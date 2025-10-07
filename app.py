@@ -61,7 +61,7 @@ def load_data(file):
         df = pd.read_csv(file)
     else:
         # Load default dataset (add your CSV path)
-        df = pd.read_csv('covid_data.csv')
+        df = pd.read_csv('covid_19.csv')
     return df
 
 # Main Dashboard Content
