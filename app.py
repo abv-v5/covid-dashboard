@@ -24,12 +24,12 @@ st.markdown("### Explore insights and patterns from the COVID-19 dataset")
 # -------------------------------
 # Sidebar
 # -------------------------------
-st.sidebar.title("Navigation")
+st.sidebar.title("Visualization Options")
 options = st.sidebar.radio(
     "Select a Visualization",
     (
         "Dataset Overview",
-        "Visualization 1",
+        "Bar Plot of top 5 countries",
         "Visualization 2",
         "Visualization 3",
         "Visualization 4",
@@ -57,14 +57,23 @@ if options == "Dataset Overview":
 # -------------------------------
 # Visualization 1
 # -------------------------------
-elif options == "Visualization 1":
-    st.subheader("Visualization 1 Title")
-    # TODO: Paste code for graph 1 here
-    # Example:
-    # fig, ax = plt.subplots()
-    # sns.barplot(x='Country', y='Cases', data=df, ax=ax)
-    # st.pyplot(fig)
-    pass
+elif options == "Bar Plot of top 5 countries":
+    st.subheader("Top 5 Countries by Confirmed COVID-19 Cases")
+
+    # Get top 5 countries by confirmed cases
+    top_5 = df.nlargest(5, 'Confirmed')
+
+    # Create the bar chart
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.bar(top_5['Country/Region'], top_5['Confirmed'], color='aqua', edgecolor='black')
+
+    ax.set_title('Top 5 Countries by Confirmed COVID-19 Cases', fontsize=14)
+    ax.set_xlabel('Country', fontsize=12)
+    ax.set_ylabel('Confirmed Cases', fontsize=12)
+    plt.xticks(rotation=45)
+
+    # Display in Streamlit
+    st.pyplot(fig)
 
 # -------------------------------
 # Visualization 2
