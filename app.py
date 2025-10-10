@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+import plotly.express as px
 
 # -------------------------------
 # Load Data
@@ -124,4 +126,4 @@ elif options == "Visualization 8":
 # Footer
 # -------------------------------
 st.markdown("---")
-st.markdown("Built with ❤️ using Streamlit")
+st.markdown("Built with ❤️ by Abhay !")
